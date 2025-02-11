@@ -1,7 +1,11 @@
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("@/components/organisms/hero"));
+
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen"></div>
+      <Hero />
       <div className="min-h-screen"></div>
     </>
   );

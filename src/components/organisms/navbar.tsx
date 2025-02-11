@@ -2,20 +2,26 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Logo from "@/components/atoms/logo";
+import { ChevronDown, Languages } from "lucide-react";
 import Button from "@/components/atoms/button";
-import LocalizationToggle from "@/components/atoms/localization-toggle";
-import NavLinks from "@/components/molecules/nav-links";
-
-gsap.registerPlugin(useGSAP);
+import logo from "../../../public/logo.svg";
 
 export default function Navbar() {
   const navbarRef = useRef(null);
   const animationTriggeredRef = useRef(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
+  const pathname = usePathname();
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About Us" },
+    { href: "/our-works", label: "Our Works" },
+  ];
 
   useGSAP(
     () => {
@@ -57,6 +63,7 @@ export default function Navbar() {
         }
       };
 
+      handleScroll();
       window.addEventListener("scroll", handleScroll);
 
       return () => {
@@ -70,36 +77,55 @@ export default function Navbar() {
     <nav ref={navbarRef} className="fixed left-0 top-0 z-50 w-full">
       <div className="mx-auto flex h-24 w-full max-w-[90%] items-center">
         <div className="flex-1">
-          <Link
-            href="/"
-            className={clsx(
-              "transition-all duration-500",
-              !animationTriggered && "invert",
-            )}
-          >
-            <Logo />
+          <Link href="/" className="group focus:outline-none">
+            <Image
+              src={logo}
+              alt="Logo"
+              className={clsx(
+                "transition-all duration-500 group-focus:ring-2 group-focus:ring-black group-focus:ring-offset-2",
+                !animationTriggered && "invert",
+              )}
+            />
           </Link>
         </div>
         <div className="flex flex-1 justify-center">
-          <NavLinks
-            active={clsx(
-              "font-semibold",
-              animationTriggered ? "text-blue" : "text-white",
-            )}
-            inactive={clsx(
-              animationTriggered
-                ? "text-black/50 hover:text-black"
-                : "text-white/80 hover:text-white",
-            )}
-          />
+          <ul className="flex items-center gap-4">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    "px-4 py-2 text-lg font-medium transition-colors duration-500 focus:outline-none focus:ring-2 focus:ring-offset-2",
+                    pathname === link.href
+                      ? animationTriggered
+                        ? "font-semibold text-blue focus:ring-black"
+                        : "font-semibold text-white focus:ring-white"
+                      : animationTriggered
+                        ? "text-black/50 hover:text-black focus:ring-black"
+                        : "text-white/80 hover:text-white focus:ring-white",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="flex flex-1 items-center justify-end gap-12">
-          <LocalizationToggle
+          <button
             className={clsx(
-              "transition-colors duration-500",
-              animationTriggered ? "text-black" : "text-white",
+              "flex items-center gap-3 transition-colors duration-500 focus:outline-none focus:ring-2 focus:ring-offset-2",
+              animationTriggered
+                ? "text-black focus:ring-black"
+                : "text-white focus:ring-white",
             )}
-          />
+          >
+            <Languages size={24} />
+            <div className="flex items-center gap-1">
+              <span>ENG</span>
+              <ChevronDown size={20} />
+            </div>
+          </button>
           <Button
             className={clsx(
               animationTriggered

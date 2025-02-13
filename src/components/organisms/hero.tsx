@@ -44,13 +44,15 @@ export default function Hero() {
   );
 
   return (
-    <header className="relative flex min-h-screen w-full flex-col justify-center">
+    <header className="relative flex h-screen w-full flex-col justify-center 1920:max-h-[1080px]">
       <div className="relative mx-auto flex w-full max-w-[85%] flex-col gap-12">
         <h1 className="flex flex-col gap-8 text-white">
-          <div className="text-7xl">Prepare to Be Amazed by</div>
-          <div className="font-geistMono text-9xl font-semibold">Random.ly</div>
+          <div className="text-5xl 1920:text-7xl">Prepare to Be Amazed by</div>
+          <div className="font-geistMono text-7xl font-semibold 1920:text-9xl">
+            Random.ly
+          </div>
           <span
-            className="relative h-36 flex-grow overflow-hidden pb-[1vw] font-geistMono text-9xl font-semibold leading-[6vw]"
+            className="relative h-20 flex-grow overflow-hidden font-geistMono text-7xl font-semibold 1920:h-36 1920:text-9xl"
             ref={wordContainerRef}
           >
             <div className="rotating-word absolute left-0 top-0 w-full text-left opacity-0">
@@ -61,19 +63,19 @@ export default function Hero() {
             </div>
           </span>
         </h1>
-        <button className="focus;ring-white group relative flex h-20 w-fit items-center gap-6 overflow-hidden rounded-full pr-8 text-white focus:outline-none focus:ring-2 focus:ring-offset-2">
-          <div className="absolute left-0 h-20 w-20 rounded-full border-2 border-white transition-all duration-500 group-hover:w-full" />
-          <ArrowRight className="h-20 w-20 rounded-full p-5 transition-all duration-500 group-hover:scale-y-[-1]" />
-          <div className="text-3xl">LET'S DISCUSS</div>
+        <button className="focus;ring-white group relative flex h-16 w-fit items-center gap-4 overflow-hidden rounded-full pr-6 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 1920:h-20 1920:gap-6 1920:pr-8">
+          <div className="absolute left-0 h-16 w-16 rounded-full border-2 border-white transition-all duration-500 group-hover:w-full 1920:h-20 1920:w-20" />
+          <ArrowRight className="h-16 w-16 rounded-full p-4 transition-all duration-500 group-hover:scale-y-[-1] 1920:h-20 1920:w-20 1920:p-5" />
+          <div className="text-xl 1920:text-3xl">LET'S DISCUSS</div>
         </button>
-        <h2 className="absolute -bottom-[5%] right-0 flex flex-col gap-1 text-right text-xl text-white/70">
+        <h2 className="absolute -bottom-[5%] right-0 flex flex-col gap-1 text-right text-lg text-white/70 1920:text-2xl">
           <div>Creating Designs That Stand Out</div>
           <div>and Weave Your Story</div>
           <div>With Every Detail That's Found</div>
           <div>and Cherished in Memory</div>
         </h2>
       </div>
-      <div className="absolute bottom-[5%] right-1/2 flex translate-x-1/2 items-center gap-4 text-xl text-white/70">
+      <div className="absolute bottom-[5%] right-1/2 flex translate-x-1/2 items-center gap-3 text-lg text-white/70 1920:gap-4 1920:text-2xl">
         <ArrowDown className="animate-bounce" />
         <div>There's Good Stuffs Below</div>
       </div>

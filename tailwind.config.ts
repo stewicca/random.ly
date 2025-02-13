@@ -7,6 +7,13 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      "1920": "1920px",
+      "1440": "1440px",
+      "1366": "1366px",
+      "1280": "1280px",
+      "1024": "1024px",
+    },
     extend: {
       fontFamily: {
         geistSans: ["var(--font-geist-sans)"],

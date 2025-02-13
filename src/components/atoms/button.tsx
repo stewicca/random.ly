@@ -16,7 +16,7 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const baseStyles =
-    "font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-500";
+    "font-semibold rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-500 overflow-hidden";
 
   const sizeStyles = {
     sm: "px-2 py-1 text-sm",

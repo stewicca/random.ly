@@ -28,11 +28,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <RootClientComponent>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} font-geistSans antialiased`}
         >
           <Canvas />
           <Navbar />
-          <main className="font-geistSans">{children}</main>
+          <main className="layout">{children}</main>
         </body>
       </html>
     </RootClientComponent>

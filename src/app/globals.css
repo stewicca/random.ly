@@ -11,4 +11,7 @@
     --gradient-color-3: #211f20;
     --gradient-color-4: #211f20;
   }
+  .layout {
+    @apply mx-auto 1024:max-w-[1024px] 1280:max-w-[1280px] 1366:max-w-[1366px] 1440:max-w-[1440px] 1920:max-w-[1920px];
+  }
 }

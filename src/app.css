@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+#gradient-canvas {
+    width:100%;
+    height:100%;
+    --gradient-color-1: #0736fe;
+    --gradient-color-2: #211f20;
+    --gradient-color-3: #211f20;
+    --gradient-color-4: #211f20;
+}

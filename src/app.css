@@ -1,4 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import 'tailwindcss';
+
+@theme {
+    --font-geist: 'Geist', sans-serif;
+}
+
+@layer utilities {
+    .menu-toggle {
+        &>div {
+            @apply h-0;
+
+            &:before {
+                @apply translate-y-0 rotate-45;
+            }
+
+            &:after {
+                @apply translate-y-0 -rotate-45;
+            }
+        }
+    }
+}
 
 #gradient-canvas {
     width:100%;
